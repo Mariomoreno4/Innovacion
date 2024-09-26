@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 class Place(models.Model):
     name = models.CharField(max_length=255)
@@ -15,7 +16,7 @@ class Place(models.Model):
         return self.name
     
 class Favorite(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Referencia al modelo User de Django
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -24,6 +25,15 @@ class Comment(models.Model):
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        unique_together = ('user', 'place') 
+    
+    def __str__(self):
+        return f'Comentario de {self.user.username} en {self.place}'
+
+    def can_modify(self, user):
+        return user == self.user and (timezone.now() - self.created_at).days < 30
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

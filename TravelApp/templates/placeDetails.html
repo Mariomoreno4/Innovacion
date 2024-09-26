@@ -12,23 +12,27 @@
 <br><br><br>
 
 <!-- Create a comment -->
-<form method="post" action="{% url 'addComment' place.id %}"></form>
+
+<h3>Añadir un comentario</h3>
+<form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Agregar Comentario</button>
-  </form>
+    <button type="submit">Comentar</button>
+</form>
 
 <!-- Comments -->
+<h2>Comentarios</h2>
+{% for comment in comments %}
+    <div>
+        <p>{{ comment.user.username }}</p>
+        <p>{{ comment.content }}</p>
+        <p>{{ comment.created_at|date:"F d, Y" }}</p>
+    </div>
+{% empty %}
+    <p>No hay comentarios aún.</p>
+{% endfor %}
 
-<div>
-    {% for comment in comments %}
-    <ul>
-        <li>{{comment.user}}</li>
-        <li>{{comment.content}}</li>
-        <li>{{comment.created_at}}</li>
-    </ul>
-    {% endfor %}
-</div>
+
 
 {% if messages %}
     <ul>
@@ -37,9 +41,6 @@
         {% endfor %}
     </ul>
 {% endif %}
-
-
-    
 
 
 

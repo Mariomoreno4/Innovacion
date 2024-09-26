@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from .models import Place, Comment
+from .forms import CommentForm
 
 def home(request):
     places = Place.objects.all()[:5]
@@ -55,14 +56,39 @@ def listPlaces(request):
 
 
 def placeDetails(request, placeId):
+    place = Place.objects.get(id=placeId)
+    comments = Comment.objects.filter(place=place).order_by('-created_at')
     
-    place = get_object_or_404(Place, pk=placeId)
-    comments = Comment.objects.filter(place=place)
+    user_comment = Comment.objects.filter(place=place, user=request.user).first() if request.user.is_authenticated else None
+    
+    if request.method == 'POST':
+        if not request.user.is_authenticated:
+            messages.error(request, "Debes iniciar sesión para comentar.")
+            return redirect('login')
+        
+        if user_comment:
+            form = CommentForm(request.POST, instance=user_comment)
+        else:
+            form = CommentForm(request.POST)
+            
+        if form.is_valid():
+            try:
+                comment = form.save(commit=False)
+                comment.user = request.user
+                comment.place = place
+                comment.save()
+                messages.success(request, "Comentario añadido/actualizado con éxito.")
+            except IntegrityError:
+                messages.error(request, "Ya has comentado en este post.")
+            return redirect('placeDetails', placeId=place.id)
+        
+    else:  
+        form = CommentForm(instance=user_comment) if user_comment else CommentForm()
     
     context = {
         'place': place,
         'comments': comments,
+        'form': form,
+        'user_comment': user_comment,
     }
-    
     return render(request, 'placeDetails.html', context)
-
