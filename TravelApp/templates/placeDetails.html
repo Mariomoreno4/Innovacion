@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ place.name }}</h1>
+
+<div>
+    <p>{{ place.description }}</p>
+    <p>Ubicación: {{ place.location }}</p>
+    <p>Popularidad: {{ place.popularity }}</p>
+</div>
+
+<br><br><br>
+
+<!-- Create a comment -->
+<form method="post" action="{% url 'addComment' place.id %}"></form>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Agregar Comentario</button>
+  </form>
+
+<!-- Comments -->
+
+<div>
+    {% for comment in comments %}
+    <ul>
+        <li>{{comment.user}}</li>
+        <li>{{comment.content}}</li>
+        <li>{{comment.created_at}}</li>
+    </ul>
+    {% endfor %}
+</div>
+
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+    
+
+
+
+{% endblock %}
