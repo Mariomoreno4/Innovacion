@@ -55,6 +55,10 @@ def listPlaces(request):
     return render(request, 'listPlaces.html', {'places': places})
 
 
+def registrar(request):
+        return render(request, 'registrar.html', )
+
+
 def placeDetails(request, placeId):
     place = Place.objects.get(id=placeId)
     comments = Comment.objects.filter(place=place).order_by('-created_at')
@@ -92,3 +96,19 @@ def placeDetails(request, placeId):
         'user_comment': user_comment,
     }
     return render(request, 'placeDetails.html', context)
+
+
+def mapa(request):
+    
+    return render(request,"mapa.html")
+
+def restaurantes(request):
+    
+    return render(request,"restaurantes.html")
+def hoteles(request):
+    
+    return render(request,"hoteles.html")
+
+def destinos(request):
+    
+    return render(request,"destinos.html")

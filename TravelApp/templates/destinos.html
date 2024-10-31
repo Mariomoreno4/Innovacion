@@ -1,0 +1,176 @@
+{% extends 'base.html' %} {% block content %}
+
+<style>
+    /* General Layout */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
+
+h1, h2 {
+    color: #295b5b;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #295b5b;
+    color: #fff;
+    padding: 15px 30px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar .login-btn {
+    background-color: #ffdd57;
+    border: none;
+    padding: 8px 16px;
+    color: #333;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Zones Section */
+.zones {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.zone-card {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.zone-card img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px 0 0 8px;
+    object-fit: cover;
+}
+
+.zone-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.zone-content h2 {
+    font-size: 18px;
+    color: #295b5b;
+    margin-bottom: 10px;
+}
+
+.zone-content p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.zone-content button {
+    background-color: #295b5b;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    align-self: flex-start;
+    transition: background-color 0.3s;
+}
+
+.zone-content button:hover {
+    background-color: #3b7a7a;
+}
+
+/* Footer */
+footer {
+    background-color: #295b5b;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zonas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   
+    <!-- Zones Section -->
+    <section class="zones">
+        <h1>Nombre</h1>
+        <div class="zone-card">
+            <img src="https://via.placeholder.com/600x300" alt="Zona 1">
+            <div class="zone-content">
+                <h2>Zona 1</h2>
+                <p>San de fwd cades adcf vedfs eloidjfin dinsf gref gregfd sdf sdfsd sdf...</p>
+                <button>Ver más</button>
+            </div>
+        </div>
+        <div class="zone-card">
+            <img src="https://via.placeholder.com/600x300" alt="Zona 2">
+            <div class="zone-content">
+                <h2>Zona 2</h2>
+                <p>San de fwd cades adcf vedfs eloidjfin dinsf gref gregfd sdf sdfsd sdf...</p>
+                <button>Ver más</button>
+            </div>
+        </div>
+        <div class="zone-card">
+            <img src="https://via.placeholder.com/600x300" alt="Zona 3">
+            <div class="zone-content">
+                <h2>Zona 3</h2>
+                <p>San de fwd cades adcf vedfs eloidjfin dinsf gref gregfd sdf sdfsd sdf...</p>
+                <button>Ver más</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <span>Nombre</span>
+    </footer>
+
+</body>
+</html>
+{%endblock%}

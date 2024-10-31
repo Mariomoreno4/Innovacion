@@ -1,0 +1,265 @@
+
+
+
+{% extends 'base.html' %} {% block content %}
+<style>
+    /* General Layout */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
+
+h1, h2 {
+    color: #295b5b;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #295b5b;
+    color: #fff;
+    padding: 15px 30px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar .login-btn {
+    background-color: #ffdd57;
+    border: none;
+    padding: 8px 16px;
+    color: #333;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Filters Section */
+.filters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.filter-buttons button {
+    background-color: #295b5b;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.filter-buttons button:hover {
+    background-color: #3b7a7a;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.search-bar button {
+    background-color: #295b5b;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #3b7a7a;
+}
+
+/* Hotels Section */
+.hotels {
+    padding: 20px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card {
+    width: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.card-content {
+    text-align: center;
+}
+
+.card-content h3 {
+    font-size: 18px;
+    color: #295b5b;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.card-content button {
+    background-color: #295b5b;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.card-content button:hover {
+    background-color: #3b7a7a;
+}
+
+/* Footer */
+footer {
+    background-color: #295b5b;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Filters Section -->
+    <section class="filters">
+        <div class="filter-buttons">
+            <button>Filtros</button>
+            <button>Precios</button>
+            <button>Puntuación</button>
+            <button>Servicios</button>
+            <button>Ordenar por</button>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar">
+            <button>Buscar</button>
+        </div>
+    </section>
+
+    <!-- Hotels Section -->
+    <section class="hotels">
+        <h2>Hoteles</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x150" alt="Hotel">
+                <div class="card-content">
+                    <h3>Nombre</h3>
+                    <p>Puntuación: 4.5 ⭐</p>
+                    <p>Precio: $7,232.23 noche</p>
+                    <p>2 camas</p>
+                    <p>Ubicación</p>
+                    <button>Ver hospedaje</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x150" alt="Hotel">
+                <div class="card-content">
+                    <h3>Nombre</h3>
+                    <p>Puntuación: 4.5 ⭐</p>
+                    <p>Precio: $7,232.23 noche</p>
+                    <p>2 camas</p>
+                    <p>Ubicación</p>
+                    <button>Ver hospedaje</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x150" alt="Hotel">
+                <div class="card-content">
+                    <h3>Nombre</h3>
+                    <p>Puntuación: 4.5 ⭐</p>
+                    <p>Precio: $7,232.23 noche</p>
+                    <p>2 camas</p>
+                    <p>Ubicación</p>
+                    <button>Ver hospedaje</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <span>Nombre</span>
+    </footer>
+
+</body>
+</html>
+{%endblock%}

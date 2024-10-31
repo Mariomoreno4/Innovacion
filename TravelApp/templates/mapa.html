@@ -1,0 +1,114 @@
+{% extends 'base.html' %} {% block content %}
+<style>
+    /* General Layout */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+}
+
+h1, h2 {
+    color: #295b5b;
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #295b5b;
+    color: #fff;
+    padding: 15px 30px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar .login-btn {
+    background-color: #ffdd57;
+    border: none;
+    padding: 8px 16px;
+    color: #333;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Map Section */
+.map-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.map-container {
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.map-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    background-color: #295b5b;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <h2>Mapa</h2>
+        <div class="map-container">
+            <img src="https://via.placeholder.com/600x400?text=Map+of+Mexico" alt="Map of Mexico">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <span>Nombre</span>
+    </footer>
+
+</body>
+</html>
+{%  endblock %}

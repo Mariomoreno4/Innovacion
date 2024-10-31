@@ -1,38 +1,70 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="/">Navbar</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a href="/" class="nav-link">Inicio</a>
-        </li>
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a href="#" class="nav-link">Sitios</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">Perfil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">Cerrar Sesión</a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-          <a href="/signin" class="nav-link">Iniciar Sesión</a>
-        </li>
-        {% endif %}
-      </ul>
-    </div>
-  </div>
+ 
+ 
+ <style>
+  /* General Styles */
+  body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: #333;
+  }
+  
+  header nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #295b5b;
+      padding: 15px 30px;
+  }
+  
+  header .logo {
+      font-size: 28px;
+      color: #fff;
+      font-weight: bold;
+  }
+  
+  nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+  }
+  
+  nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+  }
+  
+  nav ul li a:hover {
+      color: #ffdd57;
+  }
+  
+  .login-btn {
+      background-color: #ffdd57;
+      border: none;
+      padding: 8px 16px;
+      color: #333;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  }
+  
+  .login-btn:hover {
+      background-color: #fbc02d;
+  }
+ </style><!-- Navigation Bar -->
+ <nav class="navbar">
+  <a href='/'><span class="logo">Nombre</span></a>
+  <ul>
+      <li><a href="/destinos">Destinos</a></li>
+      <li><a href="/hoteles">Hoteles</a></li>
+      <li><a href="/restaurantes">Restaurantes</a></li>
+      <li><a href="/mapa">Mapa</a></li>
+  </ul>
+  
+
+  <a href="/registrar" class="nav-link"> <button class="login-btn">Registro</button></a>
 </nav>
